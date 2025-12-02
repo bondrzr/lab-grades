@@ -339,6 +339,23 @@ pull(course)
 ```
 The course most responsible for student failure is `r worst_course`.
 
+# Question 30
+```{r}
+students_age <- students |>
+mutate(age = round(lubridate::time_length(lubridate::today() - birth_date, "year")))
+
+success_by_age <- pass_df |>
+inner_join(students_age |> select(id, age), by = "id") |>
+summarise(success_rate = 100 * mean(pass), .by = age)
+
+success_by_age |>
+ggplot(aes(x = age, y = success_rate)) +
+geom_line(color = "steelblue") +
+geom_point(color = "steelblue", alpha = 0.7) +
+xlab("Age") +
+ylab("Success rate (%)") +
+theme_minimal()
+```
 
 
 
