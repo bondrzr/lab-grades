@@ -29,3 +29,9 @@ students <- read_csv(here("data", "students.csv"))
 The birth_date column of the students data frame is of class `r class(students$birth_date)`.
 The sex column of the students data frame is of class `r class(students$sex)`.
 
+# Quesiton 4
+```{r}
+grades <- read_delim(here("data", "grades.csv"), delim = "|", na = "$")
+```
+
+
