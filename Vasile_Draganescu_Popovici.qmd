@@ -303,6 +303,13 @@ inner_join(module_min, by = "id") |>
 mutate(pass = min_course_avg >= 5 & min_module_avg >= 10) |>
 select(id, group, final_grade, pass)
 ```
+# Question 27
+```{r}
+not_pass_but_10 <- pass_df |>
+filter(!pass, final_grade >= 10) |>
+nrow()
+```
+There are `r not_pass_but_10` students who do not pass and yet have a final grade larger or equal to 10.
 
 
 
