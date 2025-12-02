@@ -92,5 +92,20 @@ knitr::kable()
 ```
 # Question 10
 The data set contains `r grades |> dplyr::filter(!is.na(grade)) |> nrow()` grades.
+# Question 11
+```{r}
+martial_group <- grades |>
+filter(course_id == 10, !is.na(grade)) |>
+inner_join(students, by = "id") |>
+group_by(group) |>
+summarise(mean_grade = mean(grade))
+
+martial_group |>
+ggplot(aes(x = factor(group), y = mean_grade)) +
+geom_col(fill = "tomato") +
+xlab("Group") +
+ylab("Average grade in Martial Arts and Self-Defense") +
+theme_minimal()
+```
 
 
