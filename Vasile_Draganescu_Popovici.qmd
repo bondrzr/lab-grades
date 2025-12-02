@@ -157,6 +157,20 @@ herb |>
 slice_head(n = 5) |>
 knitr::kable()
 ```
+# Question 16
+```{r}
+herb_dist <- herb |>
+count(n_herb_grades)
+
+herb_dist |>
+ggplot(aes(x = n_herb_grades, y = n)) +
+geom_col(fill = "steelblue") +
+scale_y_continuous(breaks = seq(0, max(herb_dist$n), by = 50)) +
+xlab("Number of grades in Herbalism and Traditional Medicine") +
+ylab("Number of students") +
+theme_minimal()
+```
+
 
 
 
