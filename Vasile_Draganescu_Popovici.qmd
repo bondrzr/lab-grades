@@ -2,6 +2,8 @@
 title: "Vasile Draganescu Popovici"
 format: html
 ---
+First is a link to my github repository:
+https://github.com/bondrzr/lab-grades
 
 # Question 1
 ```{r}
@@ -168,6 +170,15 @@ geom_col(fill = "steelblue") +
 scale_y_continuous(breaks = seq(0, max(herb_dist$n), by = 50)) +
 xlab("Number of grades in Herbalism and Traditional Medicine") +
 ylab("Number of students") +
+theme_minimal()
+```
+# Question 17
+```{r}
+herb |>
+ggplot(aes(x = factor(group), y = n_herb_grades)) +
+geom_boxplot(fill = "brown") +
+xlab("Group") +
+ylab("Number of grades in Herbalism and Traditional Medicine") +
 theme_minimal()
 ```
 
