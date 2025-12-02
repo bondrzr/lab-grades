@@ -146,6 +146,17 @@ xlab("Sex") +
 ylab("Number of grades") +
 theme_minimal()
 ```
+# Question 15
+```{r}
+herb <- grades |>
+filter(course_id == 2, !is.na(grade)) |>
+inner_join(students, by = "id") |>
+count(id, group, name = "n_herb_grades")
+
+herb |>
+slice_head(n = 5) |>
+knitr::kable()
+```
 
 
 
