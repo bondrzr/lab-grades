@@ -107,5 +107,20 @@ xlab("Group") +
 ylab("Average grade in Martial Arts and Self-Defense") +
 theme_minimal()
 ```
+# Question 12
+```{r}
+grades_mod <- grades |>
+inner_join(courses, by = "course_id") |>
+filter(!is.na(grade))
+
+grades_mod |>
+ggplot(aes(x = grade)) +
+geom_density(fill = "steelblue", alpha = 0.6) +
+facet_wrap(~ module) +
+xlab("Grade") +
+ylab("Proportion of grades") +
+theme_minimal()
+```
+
 
 
