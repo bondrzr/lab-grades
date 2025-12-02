@@ -90,5 +90,7 @@ arrange(desc(age))
 oldest |>
 knitr::kable()
 ```
+# Question 10
+The data set contains `r grades |> dplyr::filter(!is.na(grade)) |> nrow()` grades.
 
 
