@@ -11,3 +11,15 @@ library(readr)
 here::i_am("lab-grades.Rproj")
 courses <- read_csv(here("data", "courses.csv"))
 ```
+# Question 2
+```{r}
+library(dplyr)
+library(knitr)
+
+courses |>
+rename(`course name` = course, identifier = course_id, module = module,
+       `number of exams` = nb_grades) |>
+arrange(`course name`) |>
+kable()
+```
+
