@@ -53,5 +53,19 @@ geom_bar(position = "fill") +
 scale_fill_manual(values = c("salmon", "steelblue")) +
 theme_minimal()
 ```
+# Question 7
+```{r}
+library(lubridate)
+
+students_age <- students |>
+mutate(age = time_length(today() - birth_date, unit = "year"))
+
+students_age |>
+ggplot(aes(x = age)) +
+geom_histogram(binwidth = 1, fill = "cyan", color = "white") +
+xlab("Age") +
+ylab("Number of students") +
+theme_minimal()
+```
 
 
