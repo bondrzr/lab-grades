@@ -239,6 +239,26 @@ summarise(
     use = "complete.obs"),
   .by = group)
 ```
+# Question 22
+```{r}
+best_group <- cor_by_group |>
+slice_max(abs(cor_value), n = 1) |>
+pull(group)
+
+avg_wide |>
+filter(group == best_group) |>
+ggplot(aes(x = `Astronomy and Celestial Navigation`,
+           y = `Hunting and Gathering Skills`)) +
+geom_point(alpha = 0.6) +
+geom_smooth(method = "lm", se = FALSE, color = "maroon") +
+xlab("Average grade in Astronomy and Celestial Navigation") +
+ylab("Average grade in Hunting and Gathering Skills") +
+theme_minimal()
+```
+# Question 23
+```{r}
+
+```
 
 
 
