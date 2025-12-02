@@ -229,6 +229,7 @@ xlab("Average grade in Animal Lore and Totemism") +
 ylab("Average grade in Herbalism and Traditional Medicine") +
 theme_minimal()
 ```
+It can be seen that there is a weakly positive correlation
 # Question 21
 ```{r}
 cor_by_group <- avg_wide |>
@@ -255,6 +256,7 @@ xlab("Average grade in Astronomy and Celestial Navigation") +
 ylab("Average grade in Hunting and Gathering Skills") +
 theme_minimal()
 ```
+It is shown there is a negative correlation between average grade in hunting and gathering skills and average grade in astronomy and celestial navigation
 # Question 23
 ```{r}
 final_df <- avg_wide |>
