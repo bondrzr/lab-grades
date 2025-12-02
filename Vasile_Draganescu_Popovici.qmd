@@ -323,6 +323,21 @@ xlab("Group") +
 ylab("Pass rate (%)") +
 theme_minimal()
 ```
+# Question 29
+```{r}
+fail_counts <- grades |>
+filter(grade < 5) |>
+summarise(n_fail = n(), .by = course_id)
+
+worst_course_id <- fail_counts |>
+slice_max(n_fail) |>
+pull(course_id)
+
+worst_course <- courses |>
+filter(course_id == worst_course_id) |>
+pull(course)
+```
+The course most responsible for student failure is `r worst_course`.
 
 
 
