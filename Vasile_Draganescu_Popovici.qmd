@@ -3,3 +3,11 @@ title: "Vasile Draganescu Popovici"
 format: html
 ---
 
+# Question 1
+```{r}
+library(here)
+library(readr)
+
+here::i_am("lab-grades.Rproj")
+courses <- read_csv(here("data", "courses.csv"))
+```
