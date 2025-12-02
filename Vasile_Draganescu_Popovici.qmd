@@ -67,5 +67,15 @@ xlab("Age") +
 ylab("Number of students") +
 theme_minimal()
 ```
+# Question 8 
+```{r}
+median_age <- students |>
+mutate(age = time_length(today() - birth_date, unit = "year")) |>
+group_by(group) |>
+summarise(median_age = round(median(age)))
+
+median_age |>
+knitr::kable()
+```
 
 
