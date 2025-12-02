@@ -267,6 +267,15 @@ arrange(desc(final_grade)) |>
 slice_head(n = 5) |>
 knitr::kable()
 ```
+# Question 24
+```{r}
+final_df |>
+ggplot(aes(x = final_grade, y = factor(group))) +
+geom_boxplot(fill = "orange") +
+xlab("Final grade") +
+ylab("Group") +
+theme_minimal()
+```
 
 
 
