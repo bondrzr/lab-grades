@@ -286,6 +286,23 @@ xlab("Final grade") +
 ylab("Group") +
 theme_minimal()
 ```
+# Question 26
+```{r}
+course_min <- avg_per_course |>
+summarise(min_course_avg = min(avg_grade, na.rm = TRUE), .by = id)
+
+module_avg <- avg_per_course |>
+summarise(module_avg = mean(avg_grade), .by = c(id, module))
+
+module_min <- module_avg |>
+summarise(min_module_avg = min(module_avg, na.rm = TRUE), .by = id)
+
+pass_df <- final_df |>
+inner_join(course_min, by = "id") |>
+inner_join(module_min, by = "id") |>
+mutate(pass = min_course_avg >= 5 & min_module_avg >= 10) |>
+select(id, group, final_grade, pass)
+```
 
 
 
