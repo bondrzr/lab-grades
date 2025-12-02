@@ -77,5 +77,18 @@ summarise(median_age = round(median(age)))
 median_age |>
 knitr::kable()
 ```
+# Question 9
+```{r}
+oldest <- students |>
+mutate(age = time_length(today() - birth_date, unit = "year")) |>
+group_by(group) |>
+slice_max(age, n = 1) |>
+ungroup() |>
+select(id, sex, age, group) |>
+arrange(desc(age))
+
+oldest |>
+knitr::kable()
+```
 
 
