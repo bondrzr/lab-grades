@@ -311,6 +311,19 @@ nrow()
 ```
 There are `r not_pass_but_10` students who do not pass and yet have a final grade larger or equal to 10.
 
+# Question 28
+```{r}
+pass_rate <- pass_df |>
+summarise(pass_rate = 100 * mean(pass), .by = group)
+
+pass_rate |>
+ggplot(aes(x = factor(group), y = pass_rate)) +
+geom_col(fill = "violet") +
+xlab("Group") +
+ylab("Pass rate (%)") +
+theme_minimal()
+```
+
 
 
 
