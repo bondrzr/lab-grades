@@ -121,6 +121,22 @@ xlab("Grade") +
 ylab("Proportion of grades") +
 theme_minimal()
 ```
+# Question 13
+```{r}
+grades_per_student <- grades |>
+filter(!is.na(grade)) |>
+inner_join(students, by = "id") |>
+count(id, group, sex, name = "n_grades")
+
+grades_per_student |>
+slice_head(n = 5) |>
+knitr::kable()
+```
+The minimum number of grades per student is `r min(grades_per_student$n_grades)`,  
+the maximum is `r max(grades_per_student$n_grades)`,  
+the average is `r mean(grades_per_student$n_grades)`,  
+and the median is `r median(grades_per_student$n_grades)`.
+
 
 
 
