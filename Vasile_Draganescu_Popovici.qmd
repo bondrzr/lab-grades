@@ -229,6 +229,16 @@ xlab("Average grade in Animal Lore and Totemism") +
 ylab("Average grade in Herbalism and Traditional Medicine") +
 theme_minimal()
 ```
+# Question 21
+```{r}
+cor_by_group <- avg_wide |>
+summarise(
+  cor_value = cor(
+    `Astronomy and Celestial Navigation`,
+    `Hunting and Gathering Skills`,
+    use = "complete.obs"),
+  .by = group)
+```
 
 
 
