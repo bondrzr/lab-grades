@@ -196,6 +196,28 @@ xlab("Group") +
 ylab("Number of grades in Herbalism and Traditional Medicine") +
 theme_minimal()
 ```
+# Question 19
+```{r}
+avg_per_course <- grades |>
+filter(!is.na(grade)) |>
+group_by(id, course_id) |>
+summarise(avg_grade = mean(grade), .groups = "drop")
+
+avg_per_course <- avg_per_course |>
+inner_join(courses, by = "course_id") |>
+inner_join(students, by = "id")
+
+avg_wide <- avg_per_course |>
+select(id, group, course, avg_grade) |>
+tidyr::pivot_wider(
+  names_from = course,
+  values_from = avg_grade)
+
+avg_wide |>
+select(id, group, 3, 4) |>
+slice_head(n = 5) |>
+knitr::kable()
+```
 
 
 
