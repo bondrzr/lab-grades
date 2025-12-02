@@ -137,6 +137,16 @@ the maximum is `r max(grades_per_student$n_grades)`,
 the average is `r mean(grades_per_student$n_grades)`,  
 and the median is `r median(grades_per_student$n_grades)`.
 
+# Question 14
+```{r}
+grades_per_student |>
+ggplot(aes(x = sex, y = n_grades)) +
+geom_boxplot(fill = "magenta") +
+xlab("Sex") +
+ylab("Number of grades") +
+theme_minimal()
+```
+
 
 
 
