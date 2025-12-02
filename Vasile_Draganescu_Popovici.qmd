@@ -257,7 +257,15 @@ theme_minimal()
 ```
 # Question 23
 ```{r}
+final_df <- avg_wide |>
+mutate(final_grade = rowMeans(across(-c(id, group)), na.rm = TRUE)) |>
+inner_join(students |> select(id, sex), by = "id") |>
+select(id, group, sex, final_grade)
 
+final_df |>
+arrange(desc(final_grade)) |>
+slice_head(n = 5) |>
+knitr::kable()
 ```
 
 
