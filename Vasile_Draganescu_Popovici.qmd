@@ -45,5 +45,13 @@ ylab("Number of students") +
 theme_minimal()
 
 ```
+# Question 6
+```{r}
+students |>
+ggplot(aes(x = factor(group), fill = sex)) +
+geom_bar(position = "fill") +
+scale_fill_manual(values = c("salmon", "steelblue")) +
+theme_minimal()
+```
 
 
