@@ -181,6 +181,21 @@ xlab("Group") +
 ylab("Number of grades in Herbalism and Traditional Medicine") +
 theme_minimal()
 ```
+# Question 18
+```{r}
+herb <- grades |>
+filter(course_id == 2, !is.na(grade)) |>
+inner_join(students, by = "id") |>
+count(id, group, sex, name = "n_herb_grades")
+
+herb |>
+ggplot(aes(x = factor(group), y = n_herb_grades, fill = sex)) +
+geom_boxplot() +
+scale_fill_manual(values = c("F" = "salmon", "M" = "steelblue")) +
+xlab("Group") +
+ylab("Number of grades in Herbalism and Traditional Medicine") +
+theme_minimal()
+```
 
 
 
