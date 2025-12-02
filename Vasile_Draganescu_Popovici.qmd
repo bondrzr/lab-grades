@@ -33,5 +33,17 @@ The sex column of the students data frame is of class `r class(students$sex)`.
 ```{r}
 grades <- read_delim(here("data", "grades.csv"), delim = "|", na = "$")
 ```
+# Question 5
+```{r}
+library(ggplot2)
+
+students |>
+ggplot(aes(x = factor(group))) +
+geom_bar() +
+xlab("Group") +
+ylab("Number of students") +
+theme_minimal()
+
+```
 
 
